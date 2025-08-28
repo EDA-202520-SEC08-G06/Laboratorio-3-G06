@@ -135,15 +135,18 @@ def change_info (my_list:array_list, index:int, new_info) -> array_list:
 
 def exchange (my_list:array_list, index1:int, index2:int) -> array_list:
 
-    if (index1 > my_list["size"] or index1 < 0) or (index2 > my_list["size"] or index2 < 0):
+    if (index1 >= my_list["size"] or index1 < 0) or (index2 >= my_list["size"] or index2 < 0):
+        return my_list
+
+    elif index1 == index2: 
         return my_list
 
     else:
         
-        valor_index1 = my_list["elements"][index1:index]
-        valor_index2 = my_list["elements"][index2:index2]
-
-        my_list = my_list["elements"][:index1] + [valor_index2] + my_list["elements"][index1:index2] + [valor_index1] + my_list["elements"][index2:]
+        temp_index1 = my_list["elements"][index1]
+        
+        my_list["elements"][index1] = my_list["elements"][index2]
+        my_list["elements"][index2] = temp_index1
         
         return my_list
 
@@ -151,7 +154,7 @@ def exchange (my_list:array_list, index1:int, index2:int) -> array_list:
 
 def sub_list (my_list:array_list, index:int, num_elements:int) -> array_list:   
 
-    if index > my_list["size"] or index < 0:  
+    if index >= my_list["size"] or index < 0:  
         return my_list
 
     else: 
@@ -159,7 +162,7 @@ def sub_list (my_list:array_list, index:int, num_elements:int) -> array_list:
         sub_list = {"elements": [], "size": 0}
 
         sub_list["elements"] = my_list["elements"][index:index+num_elements]
-        sub_list["size"] = len(my_list["elements"])
+        sub_list["size"] = len(sub_list["elements"])
         return sub_list
 
 
