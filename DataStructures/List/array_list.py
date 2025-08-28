@@ -132,14 +132,20 @@ def change_info (my_list:array_list, index:int, new_info) -> array_list:
          return my_list
 
 
-"""
+
 def exchange (my_list:array_list, index1:int, index2:int) -> array_list:
 
     if (index1 > my_list["size"] or index1 < 0) or (index2 > my_list["size"] or index2 < 0):
         return my_list
 
     else:
-"""
+        
+        valor_index1 = my_list["elements"][index1:index]
+        valor_index2 = my_list["elements"][index2:index2]
+
+        my_list = my_list["elements"][:index1] + [valor_index2] + my_list["elements"][index1:index2] + [valor_index1] + my_list["elements"][index2:]
+        
+        return my_list
 
 
 
